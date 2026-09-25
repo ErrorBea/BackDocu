@@ -1,3 +1,81 @@
+:root {
+    --bg-color: #0e0f12;
+    --card-bg: #16181d;
+    --text-color: #e0e0e0;
+    --accent-green: #0ba303;
+    --border-color: #2a2d34;
+    --danger-red: #8b0000;
+    --safe-green: #2e7d32;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: #08080a;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--accent-green);
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+}
+
+nav a.active, nav a:hover {
+    color: var(--accent-green);
+}
+
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.filter-bar {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.tag-btn {
+    background: #22252a;
+    border: 1px solid var(--border-color);
+    color: #aaa;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.tag-btn.active, .tag-btn:hover {
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+    cursor: pointer;
+}
+
 /* Wiki List Display */
 .wiki-list {
     list-style: none;
@@ -19,7 +97,6 @@
     background-color: var(--card-bg);
 }
 
-/* Sub-level Indentation */
 .wiki-item.sub-level {
     padding-left: 2.5rem;
     background-color: rgba(255, 255, 255, 0.01);
@@ -59,55 +136,10 @@
     border-radius: 3px;
 }
 
-/* Level Page & Stat Box Styling */
-.level-article {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
+footer {
+    text-align: center;
     padding: 2rem;
-    border-radius: 6px;
-}
-
-.level-header-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.stat-box {
-    background: #0f1115;
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--accent-green);
-    padding: 1rem 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 4px;
-}
-
-.stat-box h3 {
-    margin-top: 0;
-    font-size: 1.1rem;
-    color: var(--accent-green);
-}
-
-.stat-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.stat-box li {
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem;
-}
-
-.level-section {
-    margin-bottom: 1.5rem;
-}
-
-.level-section h3 {
-    border-bottom: 1px solid #22252a;
-    padding-bottom: 0.3rem;
-    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: #666;
 }
