@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Directory - BackDocu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">BackDocu</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="levels.html" class="active">Levels</a>
+                <a href="#">Submit (Coming Soon)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h2>Level Index</h2>
+            <p>All recorded levels ordered by designation.</p>
+        </section>
+
+        <!-- Placeholder for tag filtering in future steps -->
+        <div class="filter-bar">
+            <span>Tags:</span>
+            <button class="tag-btn active">All</button>
+            <button class="tag-btn">Inside</button>
+            <button class="tag-btn">Dark</button>
+            <button class="tag-btn">Cold</button>
+        </div>
+
+        <section class="level-list">
+            <article class="level-card">
+                <div class="level-header">
+                    <h3>Level 0: "Lobby"</h3>
+                    <span class="difficulty safe">Class 0: Safe</span>
+                </div>
+                <p>An infinite expanse of mono-yellow rooms, stale water-soaked carpets, and buzzing lights.</p>
+                <div class="tags">
+                    <span class="tag">Inside</span>
+                    <span class="tag">Safe</span>
+                    <span class="tag">Humming</span>
+                </div>
+            </article>
+
+            <article class="level-card">
+                <div class="level-header">
+                    <h3>Level 1: "Habitable Zone"</h3>
+                    <span class="difficulty medium">Class 1: Low Hazard</span>
+                </div>
+                <p>Large, sprawling industrial warehouse filled with concrete floors and supply crates.</p>
+                <div class="tags">
+                    <span class="tag">Inside</span>
+                    <span class="tag">Dark</span>
+                    <span class="tag">Cold</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; BackDocu Canon Archive.</p>
+    </footer>
+</body>
+</html>
