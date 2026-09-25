@@ -58,3 +58,56 @@
     padding: 0.1rem 0.4rem;
     border-radius: 3px;
 }
+
+/* Level Page & Stat Box Styling */
+.level-article {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 6px;
+}
+
+.level-header-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-box {
+    background: #0f1115;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-green);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+.stat-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--accent-green);
+}
+
+.stat-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stat-box li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.level-section {
+    margin-bottom: 1.5rem;
+}
+
+.level-section h3 {
+    border-bottom: 1px solid #22252a;
+    padding-bottom: 0.3rem;
+    color: var(--text-color);
+}
