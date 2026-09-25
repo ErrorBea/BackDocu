@@ -11,8 +11,8 @@
         <div class="nav-container">
             <h1 class="logo">BackDocu</h1>
             <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="levels.html">Levels</a>
+                <a href="index.html">Home</a>
+                <a href="levels.html" class="active">Levels</a>
                 <a href="entities.html">Entities (Coming Soon)</a>
                 <a href="objects.html">Objects (Coming Soon)</a>
                 <a href="#">Submit (Coming Soon)</a>
@@ -23,49 +23,58 @@
     <main>
         <section class="page-header">
             <h2>Level Index</h2>
-            <p>All recorded levels ordered by number.</p>
+            <p>All recorded levels ordered by designation.</p>
         </section>
-
-        <!-- Placeholder for tag filtering in future steps -->
+        
         <div class="filter-bar">
-            <span>Tags:</span>
-            <button class="tag-btn active">All</button>
-            <button class="tag-btn">Inside</button>
-            <button class="tag-btn">Dark</button>
-            <button class="tag-btn">Cold</button>
+            <span>Filter Tags:</span>
+            <button class="tag-btn active" onclick="filterLevels('All')">All</button>
+            <button class="tag-btn" onclick="filterLevels('Inside')">Inside</button>
+            <button class="tag-btn" onclick="filterLevels('Dark')">Dark</button>
+            <button class="tag-btn" onclick="filterLevels('Cold')">Cold</button>
+            <button class="tag-btn" onclick="filterLevels('Safe')">Safe</button>
         </div>
-
-        <section class="level-list">
-            <article class="level-card">
-                <div class="level-header">
-                    <h3>Level 0: "Lobby"</h3>
-                    <span class="difficulty safe">Class 0: Safe</span>
-                </div>
-                <p>An infinite expanse of mono-yellow rooms, stale water-soaked carpets, and buzzing lights.</p>
-                <div class="tags">
-                    <span class="tag">Inside</span>
-                    <span class="tag">Safe</span>
-                    <span class="tag">Humming</span>
-                </div>
-            </article>
-
-            <article class="level-card">
-                <div class="level-header">
-                    <h3>Level 1: "Habitable Zone"</h3>
-                    <span class="difficulty medium">Class 1: Low Hazard</span>
-                </div>
-                <p>Large, sprawling industrial warehouse filled with concrete floors and supply crates.</p>
-                <div class="tags">
-                    <span class="tag">Inside</span>
-                    <span class="tag">Dark</span>
-                    <span class="tag">Cold</span>
-                </div>
-            </article>
-        </section>
+        <ul id="wiki-level-list" class="wiki-list"></ul>
     </main>
 
     <footer>
         <p>&copy; BackDocu Canon Archive.</p>
     </footer>
+
+    <script src="levels-data.js"></script>
+    <script>
+        function renderLevels(filterTag = 'All') {
+            const listContainer = document.getElementById('wiki-level-list');
+            listContainer.innerHTML = '';
+
+            levelsData.forEach(lvl => {
+                if (filterTag !== 'All' && !lvl.tags.includes(filterTag)) {
+                    return;
+                }
+
+                const li = document.createElement('li');
+                li.className = `wiki-item ${lvl.isSublevel ? 'sub-level' : ''}`;
+
+                const tagBadges = lvl.tags.map(t => `<span class="inline-tag">${t}</span>`).join(' ');
+
+                li.innerHTML = `
+                    <span class="wiki-prefix">${lvl.isSublevel ? '↳ ' : ''}</span>
+                    <a href="${lvl.file}" class="wiki-link"><strong>${lvl.number}:</strong> "${lvl.name}"</a>
+                    <span class="wiki-difficulty">${lvl.difficulty}</span>
+                    <span class="inline-tags-container">${tagBadges}</span>
+                `;
+
+                listContainer.appendChild(li);
+            });
+        }
+
+        function filterLevels(tag) {
+            document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderLevels(tag);
+        }
+
+        renderLevels();
+    </script>
 </body>
 </html>
